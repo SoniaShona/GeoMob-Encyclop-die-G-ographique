@@ -25,8 +25,8 @@ class CountryInfoActivity : AppCompatActivity() {
         slideViewPager.adapter = adapter
 
         // Tabs
-        toolBar.setTitle("Infos Pays")
-        setSupportActionBar(toolBar)
+        //toolBar.setTitle("Infos Pays")
+        //setSupportActionBar(toolBar)
 
 
         val FragmentAdapter = TabsAdapter(supportFragmentManager)

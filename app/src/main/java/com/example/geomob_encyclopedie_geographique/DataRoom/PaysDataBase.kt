@@ -7,7 +7,6 @@ import androidx.room.RoomDatabase
 
 @Database(entities = arrayOf(Pays::class, ImagePays::class, VideoPays::class, Ressource::class, Personnalite::class),
     version = 1, exportSchema = false)
-// Annotates class to be a Room Database with a table (entity) of the Word class
 
 public abstract class PaysDataBase : RoomDatabase() {
 
@@ -17,8 +16,6 @@ public abstract class PaysDataBase : RoomDatabase() {
         abstract fun ressourceDao(): RessourceDao
 
         companion object {
-            // Singleton prevents multiple instances of database opening at the
-            // same time.
             @Volatile
             private var INSTANCE: PaysDataBase? = null
 
@@ -38,5 +35,4 @@ public abstract class PaysDataBase : RoomDatabase() {
                 }
             }
         }
-    }
 }

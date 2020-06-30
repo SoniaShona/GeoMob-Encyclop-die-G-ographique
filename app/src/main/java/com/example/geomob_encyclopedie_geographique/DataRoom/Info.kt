@@ -8,5 +8,6 @@ data class Info (
     val description: String,
     val surface: String,
     val population: String,
-    val historique: Historique
+    val date_historique: String,
+    val desc_historique: String
 )

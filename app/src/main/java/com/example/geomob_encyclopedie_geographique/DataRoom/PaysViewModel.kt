@@ -28,4 +28,9 @@ class PaysViewModel(application: Application) : AndroidViewModel(application) {
     fun insert(pays: Pays) = viewModelScope.launch(Dispatchers.IO) {
         paysDao.insert(pays)
     }
+
+    fun getById(idP: Int):PaysWithVideo{
+        val pays = paysDao.getPaysWithVideosById(idP)
+        return pays
+    }
 }

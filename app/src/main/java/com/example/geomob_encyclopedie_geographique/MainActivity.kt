@@ -19,17 +19,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        paysViewModel = ViewModelProvider(this).get(PaysViewModel::class.java)
+        /*paysViewModel = ViewModelProvider(this).get(PaysViewModel::class.java)
         paysViewModel.allPays.observe(this, Observer { pays ->
             for( item in pays){
                 Log.d(ContentValues.TAG, item.toString())
             }
-        })
+        })*/
 
         val button = findViewById<Button>(R.id.button2)
         button.setOnClickListener{
             val intent = Intent(this, CountryInfoActivity::class.java)
-            intent.putExtra("idPays",1)
+            intent.putExtra("id_Pays",1)
             startActivity(intent)
         }
     }

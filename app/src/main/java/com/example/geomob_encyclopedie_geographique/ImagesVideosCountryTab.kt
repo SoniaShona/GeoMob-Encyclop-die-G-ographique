@@ -48,7 +48,9 @@ class ImagesVideosCountryTab : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val idPays = 1
+        val idPays = arguments!!.getInt("idPays")
+        Log.d(TAG,"idPays : " + idPays)
+
         imageList = mutableListOf()
         videoList = mutableListOf()
 
@@ -67,9 +69,21 @@ class ImagesVideosCountryTab : Fragment() {
                         adapter=videoAdapter
                         layoutManager= layoutMgrVd
                     }
+
                 }
             }
         })
+        /*val pays = paysViewModel.getById(idPays)
+        Log.d(TAG, "Pays" + pays.toString())
+        videoList= pays.videos as MutableList<VideoPays>
+        Log.d(TAG, "videos of Pays" + videoList.toString())
+
+        videoAdapter= VideoAdapter(videoList)
+        layoutMgrVd= LinearLayoutManager(activity)
+        recycler_view_videos.apply {
+            adapter=videoAdapter
+            layoutManager= layoutMgrVd
+        }*/
 
         paysViewModel.paysImages.observe(viewLifecycleOwner, Observer { paysWithImages ->
             for(item in paysWithImages)
@@ -83,6 +97,7 @@ class ImagesVideosCountryTab : Fragment() {
                         adapter=imageAdapter
                         layoutManager= layoutMgrImg
                     }
+                    break
                 }
             }
         })

@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.button2)
         button.setOnClickListener{
             val intent = Intent(this, CountryInfoActivity::class.java)
+            intent.putExtra("idPays",1)
             startActivity(intent)
         }
     }

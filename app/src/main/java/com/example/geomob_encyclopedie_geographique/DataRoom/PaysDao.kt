@@ -22,7 +22,7 @@ interface PaysDao {
 
     @Transaction
     @Query("SELECT * FROM pays")
-    fun getPaysWithVideos(): LiveData<List<PaysWithImage>>
+    fun getPaysWithVideos(): LiveData<List<PaysWithVideo>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(pays: Pays)

@@ -9,11 +9,17 @@ import kotlinx.coroutines.launch
 
 class PaysViewModel(application: Application) : AndroidViewModel(application) {
     val allPays:LiveData<List<Pays>>
+    val paysVideos:LiveData<List<PaysWithVideo>>
+    val paysImages:LiveData<List<PaysWithImage>>
+
+
     val paysDao:PaysDao
 
     init {
         paysDao = PaysDataBase.getDatabase(application,viewModelScope).paysDao()
         allPays = paysDao.getPays()
+        paysVideos = paysDao.getPaysWithVideos()
+        paysImages = paysDao.getPaysWithImages()
     }
 
     /**

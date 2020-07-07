@@ -66,5 +66,7 @@ dependencies {
 // Testing
     testImplementation 'junit:junit:4.12'
     androidTestImplementation "androidx.arch.core:core-testing:$rootProject.coreTestingVersion"
+//Twitter
+    implementation 'org.twitter4j:twitter4j-core:4.0.7'
 }
 

@@ -17,17 +17,20 @@ class TabsAdapter(fm: FragmentManager, idPays:Int) : FragmentPagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
         when(position) {
-            0 -> {return InfoCountryTab()}
-            1 -> { val bundle = Bundle()
-                Log.d(ContentValues.TAG,"dakhal TabsAdapter "+ id )
-                bundle.putInt("idPays",id)
-                val frag = ImagesVideosCountryTab()
-                frag.arguments= bundle
-                return frag
-            }
-            else -> return TweetsCountryTab()
+            0 ->return initFragment( InfoCountryTab())
+            1 -> return initFragment(ImagesVideosCountryTab())
+            else ->return initFragment(TweetsCountryTab())
 
         }
+    }
+
+    private fun initFragment(frag: Fragment):Fragment{
+        val bundle = Bundle()
+        Log.d(ContentValues.TAG,"dakhal TabsAdapter "+ id )
+        bundle.putInt("idPays",id)
+        val fragment = frag
+        fragment.arguments= bundle
+        return fragment
     }
 
 

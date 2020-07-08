@@ -9,20 +9,27 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.geomob_encyclopedie_geographique.DataRoom.PaysViewModel
+import com.example.geomob_encyclopedie_geographique.DataRoom.Tweet
+import kotlinx.android.synthetic.main.fragment_tweets_country_tab.*
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Dispatchers.Main
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import twitter4j.*
 import twitter4j.conf.ConfigurationBuilder
 
-class TweetsCountryTab : Fragment() {
+class TweetsCountryTab : BaseFragment() {
     private val myConsumeKey : String= "mabGMqyg1Ol64971cbLMFs2AR"
     private val myConsumerSecret : String="iJxI6pWzZNL80Hy0DjDOFBnqwdZBbMggLHKQnabzEX5M4RVamj"
     private val myAccessToken : String = "1223554396883124224-RpshukHC5gnO1mMoQbcXQibM4R7FrY"
     private val myTokenSecret:String = "s9oBUivHSYHmomZdSgPAvXRJ9mTASzWPHKlneCs6bDifO"
     private var hashtag:String = ""
     private lateinit var paysViewModel: PaysViewModel
+    private var dataList:MutableList<Tweet> = mutableListOf()
+    private lateinit var tweetAdapter:TweetAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,6 +56,14 @@ class TweetsCountryTab : Fragment() {
             hashtag = pays.info.name
             Log.d(ContentValues.TAG,"hashtag "+ hashtag)
             searchTweets(hashtag)
+            tweetAdapter = TweetAdapter(dataList)
+            Log.d(ContentValues.TAG,"dataList "+   dataList.size)
+            recycler_tweet_view.apply {
+                adapter= tweetAdapter
+                layoutManager = LinearLayoutManager(activity)
+            }
+
+            tweetAdapter.notifyDataSetChanged()
         })
     }
 
@@ -74,15 +89,19 @@ class TweetsCountryTab : Fragment() {
                 val result: QueryResult
                 result = twitter.search(query)
                 val tweets: List<Status> = result.getTweets()
-                for (tweet in tweets) {
-                    Log.d(ContentValues.TAG,
-                        "@" + tweet.getUser().getScreenName().toString() + " - " + tweet.getText()
-                    )
+                var tw:Tweet
+                for (i in 0..5) {
+                   tw = Tweet(tweets[i].user.name,"@" + tweets[i].user.screenName,tweets[i].user.biggerProfileImageURLHttps,tweets[i].text)
+                    dataList.add(tw)
+                    Log.d(ContentValues.TAG,"wa9ila la date " + tweets[i].createdAt.toString())
+                }
+                launch(Dispatchers.Main) { tweetAdapter.notifyDataSetChanged()
                 }
             } catch (te: TwitterException) {
                 Log.d(ContentValues.TAG,"Failed to search tweets: " + te.errorMessage)
             }
         }
+
     }
 
 }

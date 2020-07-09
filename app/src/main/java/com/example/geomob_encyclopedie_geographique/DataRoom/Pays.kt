@@ -5,6 +5,7 @@ import androidx.room.*
 @Entity(tableName = "pays" )
 data class Pays (
     @PrimaryKey(autoGenerate = true) val paysId: Int,
+    //@ColumnInfo(name = "nom") val nom : String,
     @Embedded
     val info: Info,
     @ColumnInfo(name = "drapeauUrl") val drapeauUrl: String,

@@ -6,9 +6,26 @@
     tools:context=".InfoCountryTab">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Info Fragment" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+        <TextView
+            android:id="@+id/Description"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="Info Fragment" />
+
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:src="@drawable/algerie1"
+        android:layout_toStartOf="@+id/Description"
+        android:layout_toLeftOf="@+id/Description" />
+
+    </RelativeLayout>
 
 </FrameLayout>

@@ -29,10 +29,14 @@ class PaysViewModel(application: Application) : AndroidViewModel(application) {
         paysDao.insert(pays)
     }
 
-    /*fun getById(idP: Int):PaysWithVideo{
+    fun getPaysVideosById(idP: Int):LiveData<PaysWithVideo>{
         val pays = paysDao.getPaysWithVideosById(idP)
         return pays
-    }*/
+    }
+
+    fun getPaysImagesById(idP: Int):LiveData<PaysWithImage>{
+        return paysDao.getPaysWithImagesById(idP)
+    }
 
     fun getPaysById(idP: Int):LiveData<Pays>{
         val pays = paysDao.getPaysById(idP)

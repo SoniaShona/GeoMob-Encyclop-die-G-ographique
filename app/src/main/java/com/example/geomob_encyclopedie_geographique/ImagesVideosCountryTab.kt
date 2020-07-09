@@ -54,9 +54,10 @@ class ImagesVideosCountryTab : Fragment() {
         imageList = mutableListOf()
         videoList = mutableListOf()
 
-        paysViewModel = ViewModelProvider(this).get(PaysViewModel::class.java)
+       paysViewModel = ViewModelProvider(this).get(PaysViewModel::class.java)
         paysViewModel.paysVideos.observe(viewLifecycleOwner, Observer { paysWithVideo ->
             Log.d(TAG,"9balll la boucle ta3 videos")
+
             for(item in paysWithVideo)
             {
                 Log.d(TAG, item.toString())
@@ -73,39 +74,53 @@ class ImagesVideosCountryTab : Fragment() {
                 }
             }
         })
-        /*val pays = paysViewModel.getById(idPays)
-        Log.d(TAG, "Pays" + pays.toString())
-        videoList= pays.videos as MutableList<VideoPays>
-        Log.d(TAG, "videos of Pays" + videoList.toString())
 
-        videoAdapter= VideoAdapter(videoList)
-        layoutMgrVd= LinearLayoutManager(activity)
-        recycler_view_videos.apply {
-            adapter=videoAdapter
-            layoutManager= layoutMgrVd
-        }*/
-
-        paysViewModel.paysImages.observe(viewLifecycleOwner, Observer { paysWithImages ->
-            for(item in paysWithImages)
-            {
-                if(item.pays.paysId == idPays){
-                    imageList= item.images as MutableList<ImagePays>
-                    imageAdapter= ImageAdapter(imageList)
-
-                    layoutMgrImg= GridLayoutManager(activity,3)
-                    recycler_view_images.apply {
-                        adapter=imageAdapter
-                        layoutManager= layoutMgrImg
-                    }
-                    break
+           /* paysViewModel = ViewModelProvider(this).get(PaysViewModel::class.java)
+            paysViewModel.getPaysVideosById(idPays).observe(viewLifecycleOwner, Observer {pays ->
+                videoList= pays.videos as MutableList<VideoPays>
+                videoAdapter= VideoAdapter(videoList)
+                layoutMgrVd= LinearLayoutManager(activity)
+                recycler_view_videos.apply {
+                    adapter=videoAdapter
+                    layoutManager= layoutMgrVd
                 }
+            })*/
+
+
+
+
+
+            paysViewModel.paysImages.observe(viewLifecycleOwner, Observer { paysWithImages ->
+                for(item in paysWithImages)
+                {
+                    if(item.pays.paysId == idPays){
+                        imageList= item.images as MutableList<ImagePays>
+                        imageAdapter= ImageAdapter(imageList)
+
+                        layoutMgrImg= GridLayoutManager(activity,3)
+                        recycler_view_images.apply {
+                            adapter=imageAdapter
+                            layoutManager= layoutMgrImg
+                        }
+                        break
+                    }
+                }
+            })
+
+        /*paysViewModel.getPaysImagesById(idPays).observe(viewLifecycleOwner, Observer {
+            Log.d(ContentValues.TAG, it.toString())
+            imageList = it.images as MutableList<ImagePays>
+            imageAdapter = ImageAdapter(imageList)
+            recycler_view_images.apply {
+                adapter = imageAdapter
+                layoutManager = GridLayoutManager(activity,3)
             }
-        })
+        })*/
 
 
-    }
+            }
 
-    companion object {
-        fun newInstance(): ImagesVideosCountryTab = ImagesVideosCountryTab()
-    }
-}
+            companion object {
+            fun newInstance(): ImagesVideosCountryTab = ImagesVideosCountryTab()
+            }
+            }

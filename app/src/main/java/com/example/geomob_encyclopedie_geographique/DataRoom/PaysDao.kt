@@ -28,8 +28,12 @@ interface PaysDao {
     fun getPaysWithVideos(): LiveData<List<PaysWithVideo>>
 
     @Transaction
-    @Query("SELECT * FROM pays WHERE paysId = :idP LIMIT 1")
+    @Query("SELECT * FROM pays WHERE paysId = :idP")
     fun getPaysWithVideosById(idP:Int): LiveData<PaysWithVideo>
+
+    @Transaction
+    @Query("SELECT * FROM pays WHERE paysId = :idP")
+    fun getPaysWithImagesById(idP:Int): LiveData<PaysWithImage>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(pays: Pays)

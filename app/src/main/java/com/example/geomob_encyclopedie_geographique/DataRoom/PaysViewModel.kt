@@ -11,6 +11,7 @@ class PaysViewModel(application: Application) : AndroidViewModel(application) {
     val allPays:LiveData<List<Pays>>
     val paysVideos:LiveData<List<PaysWithVideo>>
     val paysImages:LiveData<List<PaysWithImage>>
+    val paysPersonnalites:LiveData<List<PaysWithPersonnalite>>
 
 
     val paysDao:PaysDao
@@ -20,6 +21,7 @@ class PaysViewModel(application: Application) : AndroidViewModel(application) {
         allPays = paysDao.getPays()
         paysVideos = paysDao.getPaysWithVideos()
         paysImages = paysDao.getPaysWithImages()
+        paysPersonnalites = paysDao.getPaysWithPersonnalites()
     }
 
     /**

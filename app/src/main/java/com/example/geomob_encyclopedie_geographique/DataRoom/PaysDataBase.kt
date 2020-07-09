@@ -31,6 +31,7 @@ public abstract class PaysDataBase : RoomDatabase() {
                     val paysDao = database.paysDao()
                     val videoDao = database.videoDao()
                     val imageDao = database.imageDao()
+                    val personnaliteDao = database.personnaliteDao()
 
                     // Delete all content here.
                     paysDao.deleteAll()
@@ -90,6 +91,10 @@ public abstract class PaysDataBase : RoomDatabase() {
                     imageDao.insert(image)
 
 
+                    var personnalite = Personnalite(1,1,"Barack Obama",R.drawable.obama.toString(),"Barack Hussein Obama II /bəˈɹɑːk huːˈseɪn oʊˈbɑːmə/, né le 4 août 1961 à Honolulu, est un homme d'État américain. Il est le 44ᵉ président des États-Unis, en fonction du 20 janvier 2009 au 20 janvier 2017.")
+                    personnaliteDao.insert(personnalite)
+                    personnalite = Personnalite(2,1,"Donald Trump",R.drawable.trump.toString(),"Donald John Trump , né le 14 juin 1946 à New York, est un homme d'affaires, animateur de télévision et homme d'État américain, président des États-Unis depuis le 20 janvier 2017.")
+                    personnaliteDao.insert(personnalite)
                 }
             }
         }

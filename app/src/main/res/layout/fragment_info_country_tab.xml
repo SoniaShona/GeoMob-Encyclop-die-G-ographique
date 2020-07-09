@@ -26,21 +26,22 @@
 
         <TextView
             android:id="@+id/description"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt1"
             android:layout_marginTop="5dp"
-            android:text="Info Fragment"
-            />
+            android:text="Info Fragment" />
 
         <ImageView
             android:id="@+id/flag"
             android:layout_width="92dp"
             android:layout_height="140dp"
-            android:layout_marginStart="3dp"
 
+            android:layout_below="@+id/description"
+            android:layout_marginStart="214dp"
             android:layout_marginLeft="8dp"
-            android:layout_toEndOf="@+id/description"
+            android:layout_marginTop="-22dp"
+            android:layout_toEndOf="@+id/txt2"
             android:src="@drawable/algerie1" />
 
         <TextView
@@ -107,13 +108,31 @@
             android:layout_below="@+id/txt5"
             />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/historique"
+            android:layout_marginTop="8dp"
+            android:text="Personnalités"
+            android:id="@+id/txt6"
+            android:textStyle="bold|italic" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt6"
+            android:id="@+id/recycler_view_personnalite"
+            android:layout_marginTop="16dp">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
         <Button
             android:id="@+id/btnPlayAudio"
             android:layout_width="157dp"
             android:layout_height="37dp"
             android:layout_below="@+id/flag"
-            android:layout_marginStart="167dp"
-            android:layout_marginTop="210dp"
+            android:layout_marginStart="199dp"
+            android:layout_marginTop="-17dp"
             android:layout_toEndOf="@+id/txt2"
             android:background="@color/colorPrimary"
             android:shadowColor="@color/colorPrimary"

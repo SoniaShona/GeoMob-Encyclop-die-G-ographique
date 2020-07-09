@@ -1,24 +1,26 @@
 package com.example.geomob_encyclopedie_geographique
 
-import android.content.ClipDescription
+import android.app.Activity
 import android.content.ContentValues
-import android.content.Context
+import android.content.pm.ActivityInfo
 import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.MediaController
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.geomob_encyclopedie_geographique.DataRoom.PaysViewModel
+import com.example.geomob_encyclopedie_geographique.DataRoom.Personnalite
+import com.example.geomob_encyclopedie_geographique.DataRoom.VideoPays
+import kotlinx.android.synthetic.main.fragment_images_videos_country_tab.*
+import kotlinx.android.synthetic.main.fragment_info_country_tab.*
 
 
 class InfoCountryTab : Fragment() {
@@ -35,6 +37,13 @@ class InfoCountryTab : Fragment() {
     private lateinit var datehistoriquePays : TextView
     private lateinit var historiquePays : TextView
     private lateinit var btnPlayAudio : Button
+
+    private lateinit var layoutMgrPrsn: LinearLayoutManager
+
+
+    private lateinit var personnaliteAdapter:PersonnaliteAdapter
+
+    lateinit var personnaliteList:MutableList<Personnalite>
 
     private var v: View?= null
 
@@ -89,6 +98,26 @@ class InfoCountryTab : Fragment() {
                     btnPlayAudio.setOnClickListener { lireAudio(resId) }
 
 
+                    paysViewModel.paysPersonnalites.observe(viewLifecycleOwner, Observer { paysWithPersonnalites ->
+
+                        for(item in paysWithPersonnalites)
+                        {
+                            Log.d(ContentValues.TAG, item.toString())
+                            if(item.pays.paysId == idPays){
+                                Log.d(ContentValues.TAG, item.toString())
+                                personnaliteList= item.personnalites as MutableList<Personnalite>
+                                personnaliteAdapter = PersonnaliteAdapter(personnaliteList)
+                                layoutMgrPrsn = LinearLayoutManager(activity)
+                                recycler_view_personnalite.apply {
+                                    adapter=personnaliteAdapter
+                                    layoutManager= layoutMgrPrsn
+                                }
+
+                            }
+                        }
+                    })
+
+
                 }
             }
         })
@@ -110,6 +139,14 @@ class InfoCountryTab : Fragment() {
             mp!!.start()
         else
             mp!!.pause()
+    }
+
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if (isVisibleToUser) {
+            val a: Activity? = activity
+            if (a != null) a.requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_FULL_SENSOR
+        }
     }
 
 }

@@ -17,7 +17,7 @@ class RecyclerViewAdapter (private val context: Context?, private var countries:
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CountryHolder {
-        val view = inflater.inflate(R.layout.country_item,parent,false)
+        val view = inflater.inflate(R.layout.list_content,parent,false)
         return CountryHolder(view)
     }
 

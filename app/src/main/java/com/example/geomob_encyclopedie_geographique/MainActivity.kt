@@ -31,14 +31,14 @@ class MainActivity : AppCompatActivity() {
 
         paysViewModel = ViewModelProvider(this).get(PaysViewModel::class.java)
 
-        list = findViewById<View>(R.id.countrylist) as RecyclerView
+        //list = findViewById<View>(R.id.countrylist) as RecyclerView
 
-        paysViewModel.allPays.observe(this, Observer {pays ->
-            var countries= pays as MutableList<Pays>
-            adapter = RecyclerViewAdapter(this,countries)
-            list.adapter = adapter
+        //paysViewModel.allPays.observe(this, Observer {pays ->
+         //   var countries= pays as MutableList<Pays>
+           // adapter = RecyclerViewAdapter(this,countries)
+            //list.adapter = adapter
 
-        })
+        //})
 
         //adapter = RecyclerViewAdapter(this,countries)
         //list.adapter = adapter
@@ -52,14 +52,17 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        /*paysViewModel = ViewModelProvider(this).get(PaysViewModel::class.java)
+
+
+        paysViewModel = ViewModelProvider(this).get(PaysViewModel::class.java)
+        Log.d(ContentValues.TAG , "avant de commencer")
 
         paysViewModel.allPays.observe(this, Observer { pays ->
             for( item in pays){
                 Log.d(ContentValues.TAG, item.toString())
 
             }
-        })*/
+        })
 
         val button = findViewById<Button>(R.id.button2)
         button.setOnClickListener{

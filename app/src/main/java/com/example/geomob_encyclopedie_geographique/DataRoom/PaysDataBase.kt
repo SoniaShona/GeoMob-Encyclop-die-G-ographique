@@ -32,6 +32,7 @@ public abstract class PaysDataBase : RoomDatabase() {
                     val videoDao = database.videoDao()
                     val imageDao = database.imageDao()
                     val personnaliteDao = database.personnaliteDao()
+                    val ressourceDao = database.ressourceDao()
 
                     // Delete all content here.
                     paysDao.deleteAll()
@@ -43,6 +44,40 @@ public abstract class PaysDataBase : RoomDatabase() {
                                 "Depuis 2005, elle est classée sur la Liste Mémoire du monde de l'UNESCO."),R.drawable.usaflag.toString(),R.raw.hymneusa.toString()
                     )
                     paysDao.insert(pays)
+
+
+                    var image = ImagePays(20,1,R.drawable.usa3.toString())
+                    imageDao.insert(image)
+                    image = ImagePays(21,1,R.drawable.usa1.toString())
+                    imageDao.insert(image)
+                    image = ImagePays(22,1,R.drawable.usa2.toString())
+                    imageDao.insert(image)
+                    image = ImagePays(23,1,R.drawable.usa4.toString())
+                    imageDao.insert(image)
+                    image = ImagePays(24,1,R.drawable.usa5.toString())
+                    imageDao.insert(image)
+
+
+                    var personnalite = Personnalite(1,1,"Barack Obama",R.drawable.obama.toString(),"Barack Hussein Obama II /bəˈɹɑːk huːˈseɪn oʊˈbɑːmə/, né le 4 août 1961 à Honolulu, est un homme d'État américain. Il est le 44ᵉ président des États-Unis, en fonction du 20 janvier 2009 au 20 janvier 2017.")
+                    personnaliteDao.insert(personnalite)
+                    personnalite = Personnalite(2,1,"Donald Trump",R.drawable.trump.toString(),"Donald John Trump , né le 14 juin 1946 à New York, est un homme d'affaires, animateur de télévision et homme d'État américain, président des États-Unis depuis le 20 janvier 2017.")
+                    personnaliteDao.insert(personnalite)
+
+
+                    var ressource = Ressource(1,1,"Hollywood Sign, Los Angeles",R.drawable.usaressource1.toString(),"Le Hollywood Sign se trouve sur le versant sud du mont Lee, à l’ouest du Griffith Park de Los Angeles depuis 1923")
+                    ressourceDao.insert(ressource)
+                    ressource = Ressource(2,1,"Statue of Liberty National Monument",R.drawable.usaressource2.toString(),"A l’entrée du port de New York, la Statue de la Liberté éclaire encore aujourd’hui le monde du haut de ses 93 mètres et porte haut et fort des idéaux humanistes tels que les Droits de l’Homme, la paix, la liberté, la lutte contre l’oppression, l’alliance entre les nations, l’amitié franco-américaine… ")
+                    ressourceDao.insert(ressource)
+                    ressource = Ressource(3,1,"Golden Gate Bridge, San Francisco",R.drawable.usaressource3.toString(),"Le Golden Gate Bridge de San Francisco est l’une des splendeurs du monde moderne, à l’instar du monde antique et de ses 7 merveilles. Inauguré en 1937, gigantesque artère de communication entre la ville de San Francisco et le Marin County, le Golden Gate Bridge est l’emblème de la Californie et plus largement du monde occidental.")
+                    ressourceDao.insert(ressource)
+
+
+
+
+
+
+
+
                     pays = Pays(2,
                         Info("France","balbala2","126552","1354552", "12/12/2020","grrrr2"),"drrrr2","ffffff2"
                     )
@@ -63,16 +98,7 @@ public abstract class PaysDataBase : RoomDatabase() {
                     video = VideoPays(11,1, R.raw.videoplayback1.toString())
                     videoDao.insert(video)
 
-                    var image = ImagePays(20,1,R.drawable.usa3.toString())
-                    imageDao.insert(image)
-                    image = ImagePays(21,1,R.drawable.usa1.toString())
-                    imageDao.insert(image)
-                    image = ImagePays(22,1,R.drawable.usa2.toString())
-                    imageDao.insert(image)
-                    image = ImagePays(23,1,R.drawable.usa4.toString())
-                    imageDao.insert(image)
-                    image = ImagePays(24,1,R.drawable.usa5.toString())
-                    imageDao.insert(image)
+
 
 
 
@@ -91,10 +117,7 @@ public abstract class PaysDataBase : RoomDatabase() {
                     imageDao.insert(image)
 
 
-                    var personnalite = Personnalite(1,1,"Barack Obama",R.drawable.obama.toString(),"Barack Hussein Obama II /bəˈɹɑːk huːˈseɪn oʊˈbɑːmə/, né le 4 août 1961 à Honolulu, est un homme d'État américain. Il est le 44ᵉ président des États-Unis, en fonction du 20 janvier 2009 au 20 janvier 2017.")
-                    personnaliteDao.insert(personnalite)
-                    personnalite = Personnalite(2,1,"Donald Trump",R.drawable.trump.toString(),"Donald John Trump , né le 14 juin 1946 à New York, est un homme d'affaires, animateur de télévision et homme d'État américain, président des États-Unis depuis le 20 janvier 2017.")
-                    personnaliteDao.insert(personnalite)
+
                 }
             }
         }

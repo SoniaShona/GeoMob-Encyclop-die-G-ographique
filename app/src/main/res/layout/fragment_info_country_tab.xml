@@ -122,10 +122,25 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txt6"
             android:id="@+id/recycler_view_personnalite"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="16dp"/>
 
-        </androidx.recyclerview.widget.RecyclerView>
 
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recycler_view_personnalite"
+            android:layout_marginTop="8dp"
+            android:text="Ressources "
+            android:id="@+id/txt7"
+            android:textStyle="bold|italic" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt7"
+            android:id="@+id/recycler_view_ressource"
+            android:layout_marginTop="16dp"/>
         <Button
             android:id="@+id/btnPlayAudio"
             android:layout_width="157dp"

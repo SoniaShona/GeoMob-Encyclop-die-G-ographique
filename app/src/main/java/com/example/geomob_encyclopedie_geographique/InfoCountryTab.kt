@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.geomob_encyclopedie_geographique.DataRoom.PaysViewModel
 import com.example.geomob_encyclopedie_geographique.DataRoom.Personnalite
+import com.example.geomob_encyclopedie_geographique.DataRoom.Ressource
 import com.example.geomob_encyclopedie_geographique.DataRoom.VideoPays
 import kotlinx.android.synthetic.main.fragment_images_videos_country_tab.*
 import kotlinx.android.synthetic.main.fragment_info_country_tab.*
@@ -39,11 +40,14 @@ class InfoCountryTab : Fragment() {
     private lateinit var btnPlayAudio : Button
 
     private lateinit var layoutMgrPrsn: LinearLayoutManager
+    private lateinit var layoutMgrRsrc: LinearLayoutManager
 
 
     private lateinit var personnaliteAdapter:PersonnaliteAdapter
+    private lateinit var ressourceAdapter:RessourceAdapter
 
     lateinit var personnaliteList:MutableList<Personnalite>
+    lateinit var ressourceList:MutableList<Ressource>
 
     private var v: View?= null
 
@@ -111,6 +115,26 @@ class InfoCountryTab : Fragment() {
                                 recycler_view_personnalite.apply {
                                     adapter=personnaliteAdapter
                                     layoutManager= layoutMgrPrsn
+                                }
+
+                            }
+                        }
+                    })
+
+
+                    paysViewModel.paysRessource.observe(viewLifecycleOwner, Observer { paysWithRessources ->
+
+                        for(item in paysWithRessources)
+                        {
+                            Log.d(ContentValues.TAG, item.toString())
+                            if(item.pays.paysId == idPays){
+                                Log.d(ContentValues.TAG, item.toString())
+                                ressourceList= item.ressources as MutableList<Ressource>
+                                ressourceAdapter = RessourceAdapter(ressourceList)
+                                layoutMgrRsrc = LinearLayoutManager(activity)
+                                recycler_view_ressource.apply {
+                                    adapter=ressourceAdapter
+                                    layoutManager= layoutMgrRsrc
                                 }
 
                             }

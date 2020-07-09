@@ -37,11 +37,11 @@ public abstract class PaysDataBase : RoomDatabase() {
 
                     // Add sample words.
                     var pays =Pays(1,
-                        Info("Usa","balbala","12655","135455", "12/12/2020","grrrr"),"drrrr","ffffff"
+                        Info("Usa","balbala","12655","135455", "12/12/2020","grrrr"),R.drawable.flag.toString(),"ffffff"
                     )
                     paysDao.insert(pays)
                     pays = Pays(2,
-                        Info("France","balbala2","126552","1354552", "12/12/2020","grrrr2"),"drrrr2","ffffff2"
+                        Info("France","balbala2","126552","1354552", "12/12/2020","grrrr2"),R.drawable.flag.toString(),"ffffff2"
                     )
                     paysDao.insert(pays)
 

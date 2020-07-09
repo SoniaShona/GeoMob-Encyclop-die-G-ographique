@@ -7,25 +7,157 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp">
+
         <TextView
-            android:id="@+id/Description"
-            android:layout_width="300dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Description"
+            android:textStyle="bold|italic"
+            android:id="@+id/txt1"/>
+
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt1"
+            android:layout_marginTop="5dp"
             android:text="Info Fragment" />
 
+        <ImageView
+            android:id="@+id/flag"
+            android:layout_width="92dp"
+            android:layout_height="140dp"
+
+            android:layout_below="@+id/description"
+            android:layout_marginStart="214dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="-22dp"
+            android:layout_toEndOf="@+id/txt2"
+            android:src="@drawable/algerie1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_marginTop="8dp"
+            android:text="Population"
+            android:id="@+id/txt2"
+            android:textStyle="bold|italic" />
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/population"
+            android:layout_below="@+id/txt2"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/population"
+            android:layout_marginTop="8dp"
+            android:text="Superficie"
+            android:id="@+id/txt3"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/superficie"
+            android:layout_below="@+id/txt3"
+            />
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/superficie"
+        android:layout_marginTop="8dp"
+        android:text="Date historique"
+        android:id="@+id/txt4"
+        android:textStyle="bold|italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/datehis"
+            android:layout_below="@+id/txt4"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/datehis"
+            android:layout_marginTop="8dp"
+            android:text="Histoire"
+            android:id="@+id/txt5"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/historique"
+            android:layout_below="@+id/txt5"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/historique"
+            android:layout_marginTop="8dp"
+            android:text="Personnalités"
+            android:id="@+id/txt6"
+            android:textStyle="bold|italic" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt6"
+            android:id="@+id/recycler_view_personnalite"
+            android:layout_marginTop="16dp"/>
 
 
-    <ImageView
-        android:layout_width="100dp"
-        android:layout_height="70dp"
-        android:src="@drawable/algerie1"
-        android:layout_toStartOf="@+id/Description"
-        android:layout_toLeftOf="@+id/Description" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/recycler_view_personnalite"
+            android:layout_marginTop="8dp"
+            android:text="Ressources "
+            android:id="@+id/txt7"
+            android:textStyle="bold|italic" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/txt7"
+            android:id="@+id/recycler_view_ressource"
+            android:layout_marginTop="16dp"/>
+        <Button
+            android:id="@+id/btnPlayAudio"
+            android:layout_width="157dp"
+            android:layout_height="37dp"
+            android:layout_below="@+id/flag"
+            android:layout_marginStart="199dp"
+            android:layout_marginTop="-17dp"
+            android:layout_toEndOf="@+id/txt2"
+            android:background="@color/colorPrimary"
+            android:shadowColor="@color/colorPrimary"
+            android:text="Hymne national"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp" />
     </RelativeLayout>
+
+    </ScrollView>
+
+
 
 </FrameLayout>

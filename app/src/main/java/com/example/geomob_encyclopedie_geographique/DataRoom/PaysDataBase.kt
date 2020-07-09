@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.geomob_encyclopedie_geographique.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
@@ -28,19 +29,31 @@ public abstract class PaysDataBase : RoomDatabase() {
             INSTANCE?.let { database ->
                 scope.launch {
                     val paysDao = database.paysDao()
+                    val videoDao = database.videoDao()
+                    val imageDao = database.imageDao()
 
                     // Delete all content here.
                     paysDao.deleteAll()
 
                     // Add sample words.
-                    var pays =Pays(19,
-                        Info("balbala","12655","135455", "12/12/2020","grrrr"),"drrrr","ffffff"
+                    var pays =Pays(1,
+                        Info("Usa","balbala","12655","135455", "12/12/2020","grrrr"),"drrrr","ffffff"
                     )
                     paysDao.insert(pays)
-                    pays = Pays(20,
-                        Info("balbala2","126552","1354552", "12/12/2020","grrrr2"),"drrrr2","ffffff2"
+                    pays = Pays(2,
+                        Info("France","balbala2","126552","1354552", "12/12/2020","grrrr2"),"drrrr2","ffffff2"
                     )
                     paysDao.insert(pays)
+
+                    var video = VideoPays(10,1, R.raw.videoplayback.toString())
+                    videoDao.insert(video)
+                    video = VideoPays(11,1, R.raw.videoplayback1.toString())
+                    videoDao.insert(video)
+
+                    var image = ImagePays(20,1,R.drawable.algerie1.toString())
+                    imageDao.insert(image)
+                    image = ImagePays(21,1,R.drawable.algerie2.toString())
+                    imageDao.insert(image)
 
 
                 }

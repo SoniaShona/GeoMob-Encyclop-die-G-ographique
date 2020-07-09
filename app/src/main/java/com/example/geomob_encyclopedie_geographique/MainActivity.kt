@@ -52,16 +52,19 @@ class MainActivity : AppCompatActivity() {
 
 
 
+        /*paysViewModel = ViewModelProvider(this).get(PaysViewModel::class.java)
+
         paysViewModel.allPays.observe(this, Observer { pays ->
             for( item in pays){
                 Log.d(ContentValues.TAG, item.toString())
 
             }
-        })
+        })*/
 
         val button = findViewById<Button>(R.id.button2)
         button.setOnClickListener{
             val intent = Intent(this, CountryInfoActivity::class.java)
+            intent.putExtra("id_Pays",1)
             startActivity(intent)
         }
     }

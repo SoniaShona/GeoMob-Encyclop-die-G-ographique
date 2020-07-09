@@ -9,11 +9,17 @@ import kotlinx.coroutines.launch
 
 class PaysViewModel(application: Application) : AndroidViewModel(application) {
     val allPays:LiveData<List<Pays>>
+    val paysVideos:LiveData<List<PaysWithVideo>>
+    val paysImages:LiveData<List<PaysWithImage>>
+
+
     val paysDao:PaysDao
 
     init {
         paysDao = PaysDataBase.getDatabase(application,viewModelScope).paysDao()
         allPays = paysDao.getPays()
+        paysVideos = paysDao.getPaysWithVideos()
+        paysImages = paysDao.getPaysWithImages()
     }
 
     /**
@@ -21,5 +27,15 @@ class PaysViewModel(application: Application) : AndroidViewModel(application) {
      */
     fun insert(pays: Pays) = viewModelScope.launch(Dispatchers.IO) {
         paysDao.insert(pays)
+    }
+
+    /*fun getById(idP: Int):PaysWithVideo{
+        val pays = paysDao.getPaysWithVideosById(idP)
+        return pays
+    }*/
+
+    fun getPaysById(idP: Int):LiveData<Pays>{
+        val pays = paysDao.getPaysById(idP)
+        return pays
     }
 }

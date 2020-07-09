@@ -8,6 +8,9 @@ interface PaysDao {
     @Query("SELECT * from pays")
     fun getPays(): LiveData<List<Pays>>
 
+    @Query("SELECT * from pays WHERE paysId= :idP")
+    fun getPaysById(idP: Int): LiveData<Pays>
+
     @Transaction
     @Query("SELECT * FROM pays")
     fun getPaysWithRessources(): LiveData<List<PaysWithRessource>>
@@ -22,7 +25,11 @@ interface PaysDao {
 
     @Transaction
     @Query("SELECT * FROM pays")
-    fun getPaysWithVideos(): LiveData<List<PaysWithImage>>
+    fun getPaysWithVideos(): LiveData<List<PaysWithVideo>>
+
+    @Transaction
+    @Query("SELECT * FROM pays WHERE paysId = :idP LIMIT 1")
+    fun getPaysWithVideosById(idP:Int): LiveData<PaysWithVideo>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insert(pays: Pays)

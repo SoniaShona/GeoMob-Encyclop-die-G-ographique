@@ -37,8 +37,9 @@ class CountryInfoActivity : AppCompatActivity() {
         //toolBar.setTitle("Infos Pays")
         //setSupportActionBar(toolBar)
 
-
-        val FragmentAdapter = TabsAdapter(supportFragmentManager)
+        //get id of country
+        val id_Pays = intent.getIntExtra("id_Pays",0)
+        val FragmentAdapter = TabsAdapter(supportFragmentManager,id_Pays)
         viewPager.adapter = FragmentAdapter
 
         tabLayout.setupWithViewPager(viewPager)

@@ -94,9 +94,9 @@ public abstract class PaysDataBase : RoomDatabase() {
                     )
                     paysDao.insert(pays)
 
-                    var video = VideoPays(10,1, R.raw.videoplayback.toString())
+                    var video = VideoPays(10,1, "https://www.youtube.com/watch?v=qOd-MSLDick")
                     videoDao.insert(video)
-                    video = VideoPays(11,1, R.raw.videoplayback1.toString())
+                    video = VideoPays(11,1, "https://www.youtube.com/watch?v=_iXaD76lhGg")
                     videoDao.insert(video)
 
 

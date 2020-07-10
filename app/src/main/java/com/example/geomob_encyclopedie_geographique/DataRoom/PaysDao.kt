@@ -46,4 +46,8 @@ interface PaysDao {
 
     @Update
     suspend fun update(pays: Pays)
+
+
+    @Query("UPDATE pays SET visited=:visite WHERE paysId = :idP")
+    fun updateVisited(idP : Int,visite : Boolean)
 }

@@ -41,7 +41,7 @@ public abstract class PaysDataBase : RoomDatabase() {
                     var pays =Pays(1,
                         Info("USA","Les États-Unis sont un pays constitué de 50 états et couvrant une vaste portion de l'Amérique du Nord, avec l'Alaska au nord-ouest et Hawaï étendant la présence du pays dans l'océan Pacifique. Les principales villes de la côte atlantique sont New York, centre international financier et culturel, et Washington, la capitale. Dans la région du Midwest, la métropole de Chicago est connue pour son architecture influente et sur la côte ouest, le quartier d'Hollywood à Los Angeles est célèbre pour ses studios de cinéma.","9 833 517 km2","328 239 523 hab", "4 juillet 1776","La Déclaration unanime des treize États unis d’Amérique1 (en anglais : The unanimous declaration of the thirteen united States of America), généralement appelée « Déclaration d'indépendance des États-Unis d'Amérique », est un texte politique par lequel les treize colonies britanniques d'Amérique du Nord ont fait sécession de la Grande-Bretagne le 4 juillet 1776, pour former les « États-Unis d'Amérique ». Ce texte est marqué par l'influence de la philosophie des Lumières et tire également les conséquences de la Révolution anglaise de 1688 : d'après les abus constatés, les délégués des colons estiment qu'ils ont le droit et le devoir de se révolter contre la monarchie britannique (en fait, le Parlement britannique a voté de lourds impôts et taxes frappant les colonies). Depuis, le 4 juillet est devenu la fête nationale des États-Unis : l'Independence Day (« Jour de l'Indépendance » en français).\n" +
                                 "\n" +
-                                "Depuis 2005, elle est classée sur la Liste Mémoire du monde de l'UNESCO."),R.drawable.usaflag.toString(),R.raw.hymneusa.toString()
+                                "Depuis 2005, elle est classée sur la Liste Mémoire du monde de l'UNESCO."),R.drawable.usaflag.toString(),R.raw.hymneusa.toString(),false
                     )
                     paysDao.insert(pays)
 
@@ -79,7 +79,7 @@ public abstract class PaysDataBase : RoomDatabase() {
 
 
                     pays = Pays(2,
-                        Info("France","balbala2","126552","1354552", "12/12/2020","grrrr2"),R.drawable.flag.toString(),"ffffff2"
+                        Info("France","balbala2","126552","1354552", "12/12/2020","grrrr2"),R.drawable.flag.toString(),"ffffff2",true
                     )
                     paysDao.insert(pays)
 
@@ -89,7 +89,7 @@ public abstract class PaysDataBase : RoomDatabase() {
                             "\n" +
                             "Pour les combattants de l'ALN, le 5 juillet a concrétisé une victoire acquise depuis la signature des accords d'Evian entre la France et le Gouvernement provisoire de la République algérienne (GPRA), le 18 mars 1962. Dans le pays, le silence du cessez-le-feu a succédé au vacarme des combats, dès le 19 mars 1962 à midi. \"Le fruit de nos sacrifices avait déjà commencé à se traduire au moment du cessez-le-feu. Nous vivions dans l'idée que le pays allait recouvrer sa souveraineté. Pour nous, le 5 juillet annonçait une nouvelle ère\", se remémore le colonel Salim Saadi, alors commandant de la région militaire nord de la frontière algéro-tunisienne. Posté dans la région du Tarf, l'officier n'attendait plus que le feu vert pour implanter ses troupes en Algérie.\n" +
                             "\n" +
-                            "Cette attente fiévreuse, le commandant Azzedine, alors à la tête de la Zone autonome d'Alger, ne l'a pas connue. Bien après que l'armée française eut sonné la fin des combats, il a dû mener une autre bataille. Une bataille sanglante contre la \"politique de la terre brûlée\" de l'Organisation armée secrète (OAS) qui, jusqu'aux derniers jours de juin, a multiplié les attentats et les attaques armées pour faire échouer l'abandon inexorable de l'Algérie française. \"Le 5 juillet a été le couronnement de toute une lutte, salue-t-il. L'indépendance, contrairement à ce qui a été dit, ne nous a pas été octroyée. Je suis fier d'appartenir à ce peuple, il a fait une guerre merveilleuse.\"\n"),R.drawable.algerieflag.toString(),R.raw.hymnealgerie.toString()
+                            "Cette attente fiévreuse, le commandant Azzedine, alors à la tête de la Zone autonome d'Alger, ne l'a pas connue. Bien après que l'armée française eut sonné la fin des combats, il a dû mener une autre bataille. Une bataille sanglante contre la \"politique de la terre brûlée\" de l'Organisation armée secrète (OAS) qui, jusqu'aux derniers jours de juin, a multiplié les attentats et les attaques armées pour faire échouer l'abandon inexorable de l'Algérie française. \"Le 5 juillet a été le couronnement de toute une lutte, salue-t-il. L'indépendance, contrairement à ce qui a été dit, ne nous a pas été octroyée. Je suis fier d'appartenir à ce peuple, il a fait une guerre merveilleuse.\"\n"),R.drawable.algerieflag.toString(),R.raw.hymnealgerie.toString(),false
                     )
                     paysDao.insert(pays)
 

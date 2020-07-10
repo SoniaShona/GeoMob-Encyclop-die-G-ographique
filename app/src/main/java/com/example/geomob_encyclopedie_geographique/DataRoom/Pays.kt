@@ -9,7 +9,8 @@ data class Pays (
     @Embedded
     val info: Info,
     @ColumnInfo(name = "drapeauUrl") val drapeauUrl: String,
-    @ColumnInfo(name = "hymneUrl") val hymneUrl: String
+    @ColumnInfo(name = "hymneUrl") val hymneUrl: String,
+    @ColumnInfo(name = "visited") val visited: Boolean
 )
 
 

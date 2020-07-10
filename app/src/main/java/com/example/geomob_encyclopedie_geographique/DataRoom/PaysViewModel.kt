@@ -46,4 +46,8 @@ class PaysViewModel(application: Application) : AndroidViewModel(application) {
         val pays = paysDao.getPaysById(idP)
         return pays
     }
+
+    fun updatevisited(idP: Int , visite : Boolean) {
+        paysDao.updateVisited(idP,visite)
+    }
 }

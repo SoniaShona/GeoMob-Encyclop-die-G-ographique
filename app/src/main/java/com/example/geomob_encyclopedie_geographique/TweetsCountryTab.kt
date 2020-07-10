@@ -54,10 +54,8 @@ class TweetsCountryTab : BaseFragment() {
         paysViewModel = ViewModelProvider(this).get(PaysViewModel::class.java)
         paysViewModel.getPaysById(idPays).observe(viewLifecycleOwner, Observer {pays ->
             hashtag = pays.info.name
-            Log.d(ContentValues.TAG,"hashtag "+ hashtag)
             searchTweets(hashtag)
             tweetAdapter = TweetAdapter(dataList)
-            Log.d(ContentValues.TAG,"dataList "+   dataList.size)
             recycler_tweet_view.apply {
                 adapter= tweetAdapter
                 layoutManager = LinearLayoutManager(activity)
@@ -72,7 +70,6 @@ class TweetsCountryTab : BaseFragment() {
     }
 
     private fun searchTweets(hashTag:String){
-        Log.d(ContentValues.TAG, "hashtag dakhal function "+ hashTag)
         val cb = ConfigurationBuilder()
         cb.setDebugEnabled(true)
             .setOAuthConsumerKey(myConsumeKey)
@@ -85,7 +82,6 @@ class TweetsCountryTab : BaseFragment() {
         GlobalScope.launch {
             try {
                 val query = Query("#"+ hashTag)
-                Log.d(ContentValues.TAG,"query " + query.toString())
                 val result: QueryResult
                 result = twitter.search(query)
                 val tweets: List<Status> = result.getTweets()
@@ -93,7 +89,6 @@ class TweetsCountryTab : BaseFragment() {
                 for (i in 0..5) {
                    tw = Tweet(tweets[i].user.name,"@" + tweets[i].user.screenName,tweets[i].user.biggerProfileImageURLHttps,tweets[i].text)
                     dataList.add(tw)
-                    Log.d(ContentValues.TAG,"wa9ila la date " + tweets[i].createdAt.toString())
                 }
                 launch(Dispatchers.Main) { tweetAdapter.notifyDataSetChanged()
                 }

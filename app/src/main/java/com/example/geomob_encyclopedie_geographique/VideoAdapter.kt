@@ -33,7 +33,6 @@ class VideoAdapter(private val dataList:MutableList<VideoPays>): RecyclerView.Ad
         }
 
         override fun getItemCount(): Int {
-            Log.d(TAG,"dataList.size : " + dataList.size.toString())
             return dataList.size
         }
 

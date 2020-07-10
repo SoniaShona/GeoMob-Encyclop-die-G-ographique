@@ -57,9 +57,7 @@ class CountryInfoActivity : AppCompatActivity() {
             Log.d(ContentValues.TAG,"9balll la boucle ta3 videos")
             for(item in paysWithImage)
             {
-                Log.d(ContentValues.TAG, item.toString())
                 if(item.pays.paysId == id_Pays){
-                    Log.d(ContentValues.TAG, item.toString())
                     imageList= item.images as MutableList<ImagePays>
                     val adapter = SliderAdapter(this,imageList)
                     slideViewPager.adapter = adapter
@@ -83,9 +81,7 @@ class CountryInfoActivity : AppCompatActivity() {
             Log.d(ContentValues.TAG,"début boucle")
             for(item in paysliste)
             {
-                Log.d(ContentValues.TAG, item.toString())
                 if(item.paysId == id_Pays){
-                    Log.d(ContentValues.TAG, item.toString())
                      nomPays= findViewById<TextView>(R.id.countryName)
                     nomPays.setText(item.info.name)
 

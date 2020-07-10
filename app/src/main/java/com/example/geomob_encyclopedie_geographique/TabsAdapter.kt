@@ -26,7 +26,6 @@ class TabsAdapter(fm: FragmentManager, idPays:Int) : FragmentPagerAdapter(fm) {
 
     private fun initFragment(frag: Fragment):Fragment{
         val bundle = Bundle()
-        Log.d(ContentValues.TAG,"dakhal TabsAdapter "+ id )
         bundle.putInt("idPays",id)
         val fragment = frag
         fragment.arguments= bundle

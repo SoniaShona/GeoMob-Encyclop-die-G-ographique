@@ -60,9 +60,7 @@ class ImagesVideosCountryTab : Fragment() {
 
             for(item in paysWithVideo)
             {
-                Log.d(TAG, item.toString())
                 if(item.pays.paysId == idPays){
-                    Log.d(TAG, item.toString())
                     videoList= item.videos as MutableList<VideoPays>
                     videoAdapter= VideoAdapter(videoList)
                     layoutMgrVd= LinearLayoutManager(activity)

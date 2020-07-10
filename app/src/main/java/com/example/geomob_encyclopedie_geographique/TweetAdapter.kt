@@ -20,7 +20,6 @@ class TweetAdapter(private val dataList:MutableList<Tweet>): RecyclerView.Adapte
     }
 
     override fun getItemCount(): Int {
-        Log.d(ContentValues.TAG,"dataList dakhal adapter "+   dataList.size)
         return dataList.size
     }
 

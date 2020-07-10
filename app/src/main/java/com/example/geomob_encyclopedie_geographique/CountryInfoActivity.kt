@@ -61,8 +61,8 @@ class CountryInfoActivity : AppCompatActivity() {
             {
 
                 Log.d(ContentValues.TAG, item.toString())
+
                 if(item.pays.paysId == id_Pays){
-                    Log.d(ContentValues.TAG, item.toString())
                     imageList= item.images as MutableList<ImagePays>
                     val adapter = SliderAdapter(this,imageList)
                     slideViewPager.adapter = adapter
@@ -86,7 +86,6 @@ class CountryInfoActivity : AppCompatActivity() {
             Log.d(ContentValues.TAG,"début boucle")
             for(item in paysliste)
             {
-                Log.d(ContentValues.TAG, item.toString())
                 if(item.paysId == id_Pays){
                     Log.d(ContentValues.TAG, item.toString())
                     //paysViewModel.updatevisited(item.paysId,true)

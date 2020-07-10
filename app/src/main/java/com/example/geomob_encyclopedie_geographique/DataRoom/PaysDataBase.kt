@@ -39,7 +39,8 @@ public abstract class PaysDataBase : RoomDatabase() {
 
                     // Add sample words.
                     var pays =Pays(1,
-                        Info("USA","Les États-Unis sont un pays constitué de 50 états et couvrant une vaste portion de l'Amérique du Nord, avec l'Alaska au nord-ouest et Hawaï étendant la présence du pays dans l'océan Pacifique. Les principales villes de la côte atlantique sont New York, centre international financier et culturel, et Washington, la capitale. Dans la région du Midwest, la métropole de Chicago est connue pour son architecture influente et sur la côte ouest, le quartier d'Hollywood à Los Angeles est célèbre pour ses studios de cinéma.","9 833 517 km2","328 239 523 hab", "4 juillet 1776","La Déclaration unanime des treize États unis d’Amérique1 (en anglais : The unanimous declaration of the thirteen united States of America), généralement appelée « Déclaration d'indépendance des États-Unis d'Amérique », est un texte politique par lequel les treize colonies britanniques d'Amérique du Nord ont fait sécession de la Grande-Bretagne le 4 juillet 1776, pour former les « États-Unis d'Amérique ». Ce texte est marqué par l'influence de la philosophie des Lumières et tire également les conséquences de la Révolution anglaise de 1688 : d'après les abus constatés, les délégués des colons estiment qu'ils ont le droit et le devoir de se révolter contre la monarchie britannique (en fait, le Parlement britannique a voté de lourds impôts et taxes frappant les colonies). Depuis, le 4 juillet est devenu la fête nationale des États-Unis : l'Independence Day (« Jour de l'Indépendance » en français).\n" +
+                        Info("USA","","9 833 517 km2","328 239 523 hab", "4 juillet 1776",
+                            "La Déclaration unanime des treize États unis d’Amérique1 (en anglais : The unanimous declaration of the thirteen united States of America), généralement appelée « Déclaration d'indépendance des États-Unis d'Amérique », est un texte politique par lequel les treize colonies britanniques d'Amérique du Nord ont fait sécession de la Grande-Bretagne le 4 juillet 1776, pour former les « États-Unis d'Amérique ». Ce texte est marqué par l'influence de la philosophie des Lumières et tire également les conséquences de la Révolution anglaise de 1688 : d'après les abus constatés, les délégués des colons estiment qu'ils ont le droit et le devoir de se révolter contre la monarchie britannique (en fait, le Parlement britannique a voté de lourds impôts et taxes frappant les colonies). Depuis, le 4 juillet est devenu la fête nationale des États-Unis : l'Independence Day (« Jour de l'Indépendance » en français).\n" +
                                 "\n" +
                                 "Depuis 2005, elle est classée sur la Liste Mémoire du monde de l'UNESCO."),R.drawable.usaflag.toString(),R.raw.hymneusa.toString(),false
                     )
@@ -93,9 +94,9 @@ public abstract class PaysDataBase : RoomDatabase() {
                     )
                     paysDao.insert(pays)
 
-                    var video = VideoPays(10,1, R.raw.videoplayback.toString())
+                    var video = VideoPays(10,1, "https://www.youtube.com/watch?v=qOd-MSLDick")
                     videoDao.insert(video)
-                    video = VideoPays(11,1, R.raw.videoplayback1.toString())
+                    video = VideoPays(11,1, "https://www.youtube.com/watch?v=_iXaD76lhGg")
                     videoDao.insert(video)
 
 

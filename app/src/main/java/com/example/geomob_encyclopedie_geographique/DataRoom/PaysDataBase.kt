@@ -205,6 +205,43 @@ public abstract class PaysDataBase : RoomDatabase() {
                     videoDao.insert(video)
 
 
+
+                    /*****************************************************************************************************************************/
+                    //Italie
+                    pays = Pays(5,Info("Italie","","301 338 km²","60 359 546 hab.","17 mars 1861","La première guerre d’indépendance italienne est le premier des nombreux conflits qui opposent le royaume de Sardaigne, qui par la suite deviendra le royaume d’Italie, à l'Empire d'Autriche. Elle se décompose en trois phases : deux campagnes militaires (23 mars-9 août 1848, 20-24 mars 1849), séparées par une période de trêve qui dure quelques mois et se termine par la répression envers les républiques de Rome et de Florence, et la reconquête de Venise où s'était établie la République de Saint-Marc"),
+                    R.drawable.italieflag.toString(),R.raw.hymneitalie.toString(),false)
+                    paysDao.insert(pays)
+
+                    image = ImagePays(50,5,R.drawable.italie1.toString())
+                    imageDao.insert(image)
+                    image = ImagePays(51,5,R.drawable.italie2.toString())
+                    imageDao.insert(image)
+                    image = ImagePays(52,5,R.drawable.italie3.toString())
+                    imageDao.insert(image)
+                    image = ImagePays(53,5,R.drawable.italie4.toString())
+                    imageDao.insert(image)
+                    image = ImagePays(54,5,R.drawable.italie5.toString())
+                    imageDao.insert(image)
+                    image = ImagePays(55,5,R.drawable.italie6.toString())
+                    imageDao.insert(image)
+                    image = ImagePays(56,5,R.drawable.italie7.toString())
+                    imageDao.insert(image)
+
+
+                    ressource = Ressource(50,5,"Colisée",R.drawable.italieressource1.toString(),"e Colisée, à l'origine amphithéâtre Flavien, est un immense amphithéâtre ovoïde situé dans le centre de la ville de Rome, entre l'Esquilin et le Cælius, le plus grand jamais construit dans l'Empire romain. Il est l'une des plus grandes œuvres de l'architecture et de l'ingénierie romaines")
+                    ressourceDao.insert(ressource)
+                    ressource = Ressource(51,5,"Santa Maria Del Fiore",R.drawable.italieressource2.toString(),"La cathédrale Santa Maria del Fiore est la cathédrale/dôme du XIIIᵉ siècle de l'archidiocèse de Florence à Florence en Toscane. Située piazza del Duomo dans le centre historique de Florence, elle est accolée au campanile de Giotto et face à la porte du Paradis du baptistère Saint-Jean et à la Loggia del Bigallo.")
+                    ressourceDao.insert(ressource)
+
+
+                    personnalite = Personnalite(50,5,"Sergio Mattarella",R.drawable.sergio.toString(),"Sergio Mattarella , né le 23 juillet 1941 à Palerme, est un homme d'État italien d'obédience démocrate-chrétienne, président de la République italienne depuis le 3 février 2015")
+                    personnaliteDao.insert(personnalite)
+
+
+                    video = VideoPays(50,5,"https://www.youtube.com/watch?v=NeJak05bmEc")
+                    videoDao.insert(video)
+                    video = VideoPays(51,5,"https://www.youtube.com/watch?v=oHPyW-sNIjQ")
+                    videoDao.insert(video)
                 }
             }
         }
